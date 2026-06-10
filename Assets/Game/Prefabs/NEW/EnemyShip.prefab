@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8569874529645184160}
   - component: {fileID: 2299005063953027385}
   - component: {fileID: 5273577086202597802}
+  - component: {fileID: 783327361591873094}
   - component: {fileID: 8384663767473078190}
-  - component: {fileID: 8708766191701228933}
   m_Layer: 11
   m_Name: EnemyShip
   m_TagString: Untagged
@@ -198,6 +198,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &783327361591873094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20000515369587572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5507539be40f06d4b99c36d18609ca36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Unit.Unit
+  _startingHealth: 3
+  _currentHealth: 0
+  _fireCooldown: 1.25
+  _bulletsManager: {fileID: 0}
+  _firePoint: {fileID: 3815527504220556610}
+  _rigidbody: {fileID: 2299005063953027385}
+  _speed: 7
 --- !u!114 &8384663767473078190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,26 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b2d627159921614aae95163ed1f11bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Units.EnemyUnit
-  _startingHealth: 2
-  _currentHealth: 0
-  _fireCooldown: 1.25
-  _firePoint: {fileID: 3815527504220556610}
-  _movementComponent: {fileID: 8708766191701228933}
+  _self: {fileID: 783327361591873094}
   _stoppingDistance: 0.25
---- !u!114 &8708766191701228933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20000515369587572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ece6591ec32bf014c9723dc139316613, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Game::Game.Components.Movement.RigidbodyMovementComponent
-  _rigidbody: {fileID: 2299005063953027385}
-  _speed: 5
 --- !u!1 &3915748028637531149
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcda60fe1c0e841408c4ce16fab4f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Managers.VisualManager
+  _unit: {fileID: 783327361591873094}
   _renderer: {fileID: 4470273416862447340}
   _viewTransform: {fileID: 7058545695575610611}
   _fireVFX: {fileID: 7819937135241055111}
@@ -292,8 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4739a1510652bc40ae04e0856d3bda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Controllers.UnitVisualController
-  _unit: {fileID: 8384663767473078190}
-  _manager: {fileID: 412275295398004396}
+  _unit: {fileID: 783327361591873094}
+  _unitView: {fileID: 412275295398004396}
 --- !u!1 &5654312962900090496
 GameObject:
   m_ObjectHideFlags: 0
