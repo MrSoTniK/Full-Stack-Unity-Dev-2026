@@ -1,8 +1,7 @@
-using Game.Bullet;
 using System;
 using UnityEngine;
 
-namespace Game.Unit 
+namespace Game 
 {
     public class Unit : MonoBehaviour
     {

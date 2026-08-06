@@ -1,7 +1,7 @@
 using Modules.Utils;
 using UnityEngine;
 
-namespace Game.Pool 
+namespace Game 
 {
     public class TransformsPool : MonoBehaviour
     {

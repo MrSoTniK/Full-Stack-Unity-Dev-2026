@@ -1,7 +1,7 @@
 using Modules.Utils;
 using UnityEngine;
 
-namespace Game.Player
+namespace Game
 {
     public class PlayerBoundsClamper : MonoBehaviour
     {

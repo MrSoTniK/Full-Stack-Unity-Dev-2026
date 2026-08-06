@@ -1,11 +1,11 @@
 using UnityEngine;
 
-namespace Game.Enemy 
+namespace Game 
 {
     public class EnemyAgent : MonoBehaviour
     {
         [SerializeField]
-        private Unit.Unit _self;
+        private Unit _self;
 
         [SerializeField]
         private float _stoppingDistance = 0.25f;

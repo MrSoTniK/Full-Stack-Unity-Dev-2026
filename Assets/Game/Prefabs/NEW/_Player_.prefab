@@ -78,11 +78,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcda60fe1c0e841408c4ce16fab4f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Managers.VisualManager
-  _unit: {fileID: 7206197402138071500}
   _renderer: {fileID: 4317813080842938308}
   _viewTransform: {fileID: 8847595599484683218}
   _fireVFX: {fileID: 6781497738028212387}
   _viewConfig: {fileID: 11400000, guid: 9298f762411724a389beae656b1dfcaa, type: 2}
+  _fireSFX: {fileID: 8300000, guid: 4b0fadb8fc7bdaf489e9f7879d3c71bb, type: 3}
+  _damageSFX: {fileID: 8300000, guid: 9d2f129290cb1a6489928f3dde8dbb39, type: 3}
+  _audioSource: {fileID: 4815517857997405632}
 --- !u!114 &8464269383018363847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +112,6 @@ GameObject:
   - component: {fileID: 4375221981064081814}
   - component: {fileID: 4815517857997405632}
   - component: {fileID: 7206197402138071500}
-  - component: {fileID: 4750006653202514196}
   - component: {fileID: 8134443243294175083}
   - component: {fileID: 4648577810247027528}
   m_Layer: 10
@@ -316,22 +317,6 @@ MonoBehaviour:
   _firePoint: {fileID: 26255788370389911}
   _rigidbody: {fileID: 7996945010626295663}
   _speed: 10
---- !u!114 &4750006653202514196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2935730694507814315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3a57fa80723f74f84fe883b90f6a54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Game::Game.Controllers.UnitAudioController
-  _unit: {fileID: 7206197402138071500}
-  _fireSFX: {fileID: 8300000, guid: 4b0fadb8fc7bdaf489e9f7879d3c71bb, type: 3}
-  _damageSFX: {fileID: 8300000, guid: 9d2f129290cb1a6489928f3dde8dbb39, type: 3}
-  _audioSource: {fileID: 4815517857997405632}
 --- !u!114 &8134443243294175083
 MonoBehaviour:
   m_ObjectHideFlags: 0

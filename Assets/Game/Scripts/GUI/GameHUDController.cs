@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.GUI 
+namespace Game 
 {
     public class GameHUDController : MonoBehaviour
     {
@@ -8,18 +8,28 @@ namespace Game.GUI
         private GameHUD _gameHUD;
 
         [SerializeField]
-        private Unit.Unit _player;
+        private Unit _player;
+
+        [SerializeField]
+        private EnemiesManager _enemiesManager;
 
         private void OnEnable()
         {
             _player.OnHealthChanged += ShowHealthChange;
             _player.OnDied += ShowGameOver;
+            _enemiesManager.OnEnemyDespawned += IncreaseScore;
         }
 
         private void OnDisable()
         {
             _player.OnHealthChanged -= ShowHealthChange;
             _player.OnDied -= ShowGameOver;
+            _enemiesManager.OnEnemyDespawned -= IncreaseScore;
+        }
+
+        private void IncreaseScore(EnemyAgent _)
+        {
+            _gameHUD.IncreaseScore();
         }
 
         private void ShowHealthChange(int health, int maxHealth)
@@ -28,7 +38,7 @@ namespace Game.GUI
             _gameHUD.ShakeCamera();
         }
 
-        private void ShowGameOver(Unit.Unit _)
+        private void ShowGameOver(Unit _)
         {
             _gameHUD.ShowGameOver();
         }

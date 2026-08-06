@@ -1,14 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace Game.Unit 
+namespace Game 
 {
     public class UnitView : MonoBehaviour
     {
-        [Header("Base")]
-        [SerializeField]
-        private Unit _unit;
-
         [SerializeField]
         private Renderer _renderer;
 
@@ -23,6 +19,16 @@ namespace Game.Unit
         [SerializeField]
         private ShipControllerViewConfig _viewConfig;
 
+        [Header("SFX")]
+        [SerializeField]
+        private AudioClip _fireSFX;
+
+        [SerializeField]
+        private AudioClip _damageSFX;
+
+        [SerializeField]
+        private AudioSource _audioSource;
+
         private Material _material;
         private Tweener _damageAnimation;
 
@@ -34,19 +40,23 @@ namespace Game.Unit
             _renderer.material = _material;
         }
 
-        private void OnEnable()
-        {
-            _unit.OnMove += SetMoveDirection;
-        }
-
-        private void OnDisable()
-        {
-            _unit.OnMove -= SetMoveDirection;
-        }
-
         private void LateUpdate()
         {
             this.AnimateMovement(Time.deltaTime);
+        }
+
+        public void PlayShootSound(Transform _)
+        {
+            if (_audioSource == null) return;
+
+            _audioSource.PlayOneShot(_fireSFX);
+        }
+
+        public void PlayDamageSound(int _, int __)
+        {
+            if (_audioSource == null) return;
+
+            _audioSource.PlayOneShot(_damageSFX);
         }
 
         public void SetMoveDirection(Vector2 moveDirection) 
@@ -56,6 +66,8 @@ namespace Game.Unit
 
         public void PlayFireVFX() 
         {
+            if (_fireVFX == null) return;
+
             _fireVFX.Play();
         }
 

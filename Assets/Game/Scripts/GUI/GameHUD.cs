@@ -2,7 +2,7 @@ using Modules.UI;
 using Modules.Utils;
 using UnityEngine;
 
-namespace Game.GUI 
+namespace Game 
 {
     public class GameHUD : MonoBehaviour
     {

@@ -1,10 +1,9 @@
-using Game.Pool;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Enemy 
+namespace Game 
 {
     public class EnemiesManager : MonoBehaviour
     {
@@ -67,7 +66,7 @@ namespace Game.Enemy
             var destination = _attackPosPool.NextPos();
             enemyAgent.Init(position, destination, _target);
 
-            var enemy = enemyGO.GetComponent<Unit.Unit>();
+            var enemy = enemyGO.GetComponent<Unit>();
             enemy.OnDied += Despawn;
             enemy.gameObject.SetActive(true);
 
@@ -81,7 +80,7 @@ namespace Game.Enemy
             _spawnTime = UnityEngine.Time.fixedTime;
         }
 
-        private void Despawn(Unit.Unit unit)
+        private void Despawn(Unit unit)
         {
             var enemyAgent = unit.GetComponent<EnemyAgent>();
             if (enemyAgent == null) return;
@@ -89,7 +88,7 @@ namespace Game.Enemy
             this.StartCoroutine(DespawnInNextFrame(enemyAgent, unit));
         }
 
-        private IEnumerator DespawnInNextFrame(EnemyAgent enemyAgent, Unit.Unit unit)
+        private IEnumerator DespawnInNextFrame(EnemyAgent enemyAgent, Unit unit)
         {
             yield return null;
             _activeElements.Remove(enemyAgent);

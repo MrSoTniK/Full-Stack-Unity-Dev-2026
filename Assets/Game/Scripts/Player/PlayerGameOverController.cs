@@ -1,13 +1,13 @@
 using UnityEngine;
 
-namespace Game.Player 
+namespace Game 
 {
     public class PlayerGameOverController : MonoBehaviour
     {
         [SerializeField] private GameObject[] _objectsToTurnOff;
 
         [SerializeField]
-        private Unit.Unit _player;
+        private Unit _player;
 
         private void OnEnable()
         {
@@ -19,7 +19,7 @@ namespace Game.Player
             _player.OnDied -= DisableObjects;
         }
 
-        private void DisableObjects(Unit.Unit _)
+        private void DisableObjects(Unit _)
         {
             _player.gameObject.SetActive(false);
 

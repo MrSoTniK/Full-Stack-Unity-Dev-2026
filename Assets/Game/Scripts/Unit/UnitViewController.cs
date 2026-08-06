@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Unit 
+namespace Game 
 {
     public class UnitViewController : MonoBehaviour
     {
@@ -15,6 +15,9 @@ namespace Game.Unit
             _unit.OnDied += ShowDeathEffect;
             _unit.OnHealthChanged += PlayDamageAnimation;
             _unit.OnShoot += PlayShootVFX;
+            _unit.OnMove += _unitView.SetMoveDirection;
+            _unit.OnShoot += _unitView.PlayShootSound;
+            _unit.OnHealthChanged += _unitView.PlayDamageSound;
         }
 
         private void OnDisable()
@@ -22,6 +25,9 @@ namespace Game.Unit
             _unit.OnDied -= ShowDeathEffect;
             _unit.OnHealthChanged -= PlayDamageAnimation;
             _unit.OnShoot -= PlayShootVFX;
+            _unit.OnMove -= _unitView.SetMoveDirection;
+            _unit.OnShoot -= _unitView.PlayShootSound;
+            _unit.OnHealthChanged -= _unitView.PlayDamageSound;
         }
 
         private void ShowDeathEffect(Unit unit)

@@ -1,11 +1,11 @@
 using UnityEngine;
 
-namespace Game.Player 
+namespace Game 
 {
     public class PlayerInputController : MonoBehaviour
     {
         [SerializeField]
-        private Unit.Unit _player;
+        private Unit _player;
 
         public void Update()
         {

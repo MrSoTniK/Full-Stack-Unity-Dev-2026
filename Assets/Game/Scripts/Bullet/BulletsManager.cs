@@ -1,10 +1,9 @@
-using Game.Pool;
 using Modules.Utils;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Bullet 
+namespace Game 
 {
     public class BulletsManager : MonoBehaviour
     {

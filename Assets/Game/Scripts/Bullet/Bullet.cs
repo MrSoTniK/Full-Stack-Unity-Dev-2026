@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Game.Bullet
+namespace Game
 {
     public class Bullet : MonoBehaviour
     {
@@ -25,7 +25,7 @@ namespace Game.Bullet
 
         private void OnTriggerEnter2D(Collider2D other) 
         {
-            if (!other.TryGetComponent(out Unit.Unit unit) || unit.gameObject.layer == gameObject.layer)
+            if (!other.TryGetComponent(out Unit unit) || unit.gameObject.layer == gameObject.layer)
                 return;
 
             DealDamage(unit);
@@ -37,7 +37,7 @@ namespace Game.Bullet
             transform.position += moveStep;
         }
 
-        private void DealDamage(Unit.Unit unit)
+        private void DealDamage(Unit unit)
         {
             if (_damage <= 0) return;
             unit.TakeDamage(_damage);
